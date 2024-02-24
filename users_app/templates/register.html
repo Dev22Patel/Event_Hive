@@ -70,25 +70,25 @@
         <div id="registerForm" class="hidden">
             <h2 class="font-bold mb-3 text-white">Register</h2>
             <!-- Registration form -->
+            <!-- Registration form -->
             <form action="{% url 'access:register' %}" method="POST">
                 {% csrf_token %}
-                 <!-- Your registration form elements  -->
-                 <input type="text" name="username" placeholder="username" required>
-                 <input type="email" name="email" placeholder="email" required>
-                 <input type="password" name="password" placeholder="password" required>
-                 <input type="password" name="password2" placeholder="verify password" required>
-                 <label for="User Type" class="text-white mb-1 font-extrabold" >Select User Type</label>
-                 <div class="select-wrapper">   
-                     <select id="types" >
-                         <option selected>Choose</option>
-                         <option value="sponser">Sponser</option>
-                         <option value="eventhost">Event Host</option>
-                        </select>
+                <!-- Your registration form elements  -->
+                <input type="text" name="username" placeholder="username" required>
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="password" name="password2" placeholder="verify password" required>
+                <label for="role" class="text-white mb-1 font-extrabold">Select User Type</label>
+                <div class="select-wrapper">   
+                    <select name="role" id="types">
+                        <option value="" disabled selected>Choose</option>
+                        <option value="sponsor">Sponsor</option>
+                        <option value="event_host">Event Host</option>
+                    </select>
                 </div>
-                <!-- <input type="file" accept="image/*">
-                <input type="text" placeholder="OTP">  -->
                 <button type="submit" class="mt-3">Sign Up</button>
             </form>
+
             <p class="text-white mt-2">Already have an account? <a href="#" id="showLogin">Login</a></p>
         </div>
     </div>
