@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static  'new_event.css' %}">
 </head>
 <body class="bg-[#16181c]">
     <!-- <h1>Welcome, {{ username }}!</h1>
@@ -19,10 +20,14 @@
         <ul class="flex font-semibold">
             <li class="mx-[10px] cursor-pointer">Home</li>
             <li class="mx-[10px] cursor-pointer">Auction</li>
-            <li class="mx-[10px] cursor-pointer">Events</li>
+            <li class="mx-[10px] cursor-pointer">My Events</li>
             <li class="mx-[10px] cursor-pointer">Sponsors</li>
+            <li><button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="mx-[10px] cursor-pointer" type="button">
+                + Event
+                </button>
+            </li>
         </ul>
-        <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Login/Signup</a>
+        <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Logout</a>
     </nav>
     {% else %}
     <!-- Navbar for other roles -->
@@ -31,11 +36,125 @@
         <ul class="flex font-semibold">
             <li class="mx-[10px] cursor-pointer">Home</li>
             <li class="mx-[10px] cursor-pointer">Auction</li>
-            <li class="mx-[10px] cursor-pointer">Events</li>
-            <li class="mx-[10px] cursor-pointer">Add Event</li>
+            <li class="mx-[10px] cursor-pointer">Upcoming Events</li>
+            
+            <li><button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="mx-[10px] cursor-pointer" type="button">
+                + sponser
+                </button>
+            </li>
         </ul>
-        <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Login/Signup</a>
+        <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Logout</a>
     </nav>
     {% endif %}
+
+
+
+    
+    <!-- Main modal -->
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden ml-[350px] w-auto max-w-xl fixed top-0 right-0 left-0 z-50 justify-center items-center md:inset-0 h-modal md:h-full shadow-xl">
+        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Add New Event
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <form action="#">
+                    <div class="grid gap-3 mb-3 sm:grid-cols-2">
+                        
+                        <div>
+                            <label for="Organizername" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer Name</label>
+                            <input type="text" name="Organizername" id="Organizername" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
+                        </div>
+                        <div>
+                            <label for="Organizerno." class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer PhoneNo.</label>
+                            <input type="text" name="organizerno" id="organizerno" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
+                        </div>
+                        <div>
+                            <label for="EventDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event Date</label>
+                            <input type="date" name="date" id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
+                        </div>
+                        <div>
+                            <label for="Email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Drop Email Here" required="">
+                        </div>
+                        
+                        <div>
+                            <h3 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Select Sponser Type 
+                            </h3>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> Title Sponser</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2"> Food Sponser</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Venue Sponser</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Digital Sponser</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Prize Sponser</label><br>
+                        </div>
+    
+                        <div>
+                            <label for="BiddingDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bidding Date</label>
+                            <input type="date" name="biddate" id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        </div>
+                        <div>
+                            <p class="font-medium">Event Poster</p>
+                            <input type="file" id="myFile" name="filename">
+                        </div>
+                        <div class="">
+                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                            <textarea id="description" rows="1" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>                    
+                        </div>
+                    </div>
+                    <button type="submit" class="text-white pr-3 inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                       
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Wait for the DOM content to be fully loaded
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Get the button element
+            var modalButton = document.getElementById('defaultModalButton');
+            
+            // Get the modal element
+            var modal = document.getElementById('defaultModal');
+            
+            // Get the close button element inside the modal
+            var closeButton = modal.querySelector('[data-modal-toggle="defaultModal"]');
+            
+            // Function to open the modal
+            function openModal() {
+                // Toggle the visibility of the modal
+                modal.classList.remove('hidden');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+            
+            // Function to close the modal
+            function closeModal() {
+                // Toggle the visibility of the modal
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+            
+            // Add click event listener to open the modal
+            modalButton.addEventListener('click', openModal);
+            
+            // Add click event listener to close the modal
+            closeButton.addEventListener('click', closeModal);
+        });
+    </script>
 </body>
 </html>
