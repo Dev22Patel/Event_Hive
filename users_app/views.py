@@ -8,17 +8,20 @@ from django.contrib.auth import authenticate, login as auth_login
 
 
 def login(request):
+    context = {'success' : False}
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
+        context = {'success':True}
         if user is not None:
             auth_login(request, user)
             return redirect('home')  # Assuming you have a URL named 'home'
+            
         else:
             # logger.error(f"Failed login attempt for username: {username}") 
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'register.html')  # Assuming your login template is named 'login.html'
+    return render(request, 'register.html',context)  # Assuming your login template is named 'login.html'
 
 
 # Create your views here.

@@ -1,8 +1,6 @@
 {% extends "index.html" %}
 
-{% block m%}
-    {{ form.errors }}
-{% endblock m %}
+
 
 
 {% block model %}
@@ -31,6 +29,11 @@
                  <input type="email" name="email" placeholder="email" required>
                  <input type="password" name="password" placeholder="password" required>
                  <input type="password" name="password2" placeholder="password2" required>
+                 <select id="types" >
+                    <option selected>Choose a User Type</option>
+                    <option value="sponser">Sponser</option>
+                    <option value="eventhost">Event Host</option>
+                  </select>
                 <!-- <input type="file" accept="image/*">
                 <input type="text" placeholder="OTP">  -->
                 <button type="submit">Sign Up</button>
