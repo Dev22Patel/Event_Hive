@@ -14,7 +14,7 @@
 <body class="bg-[#16181c]">
     <!-- Navbar -->
     
-    <nav class="navbar w-full h-14 bg-slate-950 flex text-white justify-between p-4 items-center sticky -top-0">
+    <nav class="navbar p-4 w-full h-14 bg-slate-950 flex text-white justify-between items-center sticky -top-0">
         <div class="Appname cursor-pointer animate-bounce ">Event<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Thive</span></div>
         <ul class="flex font-semibold">
             <li class="mx-[10px] cursor-pointer">Home</li>
@@ -22,7 +22,7 @@
             <li class="mx-[10px] cursor-pointer">Events</li>
             <li class="mx-[10px] cursor-pointer">Sponsers</li>
         </ul>
-        <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Login/Signup</a>
+        <a class="bg-purple-400  px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out cursor-pointer" href="{% url 'access:register' %}?modal=open" data-ripple-light="true">Login/Signup</a>
     </nav>
     <!-- nav khtm idhar -->
     {% block m%}
