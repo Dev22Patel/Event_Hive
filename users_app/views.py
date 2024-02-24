@@ -6,15 +6,12 @@ from .forms import CustomRegistrationForm
 from .models import UserProfile
 
 def login(request):
-    context = {'success' : False}
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-        context = {'success':True}
         if user is not None:
             auth_login(request, user)
-<<<<<<< HEAD
 
             # Determine the user's role
             try:
@@ -27,18 +24,10 @@ def login(request):
             request.session['user_role'] = user_role
 
             return redirect('home')  # Adjust to your home URL name
-=======
-            return redirect('home')  # Assuming you have a URL named 'home'
-            
->>>>>>> af71f8dfb9a18aa3c6e9fa50589f895d8ca7c4f1
         else:
             messages.error(request, 'Invalid username or password.')
-<<<<<<< HEAD
 
     return render(request, 'login.html')  # Ensure you have a 'login.html' template
-=======
-    return render(request, 'register.html',context)  # Assuming your login template is named 'login.html'
->>>>>>> af71f8dfb9a18aa3c6e9fa50589f895d8ca7c4f1
 
 
 # Create your views here.
