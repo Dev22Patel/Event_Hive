@@ -14,7 +14,7 @@ Welcome to EventHive, your ultimate platform for connecting event hosts with spo
 To dive into EventHive, follow these steps:
 
 1. Clone the EventHive repository:
- git clone https://github.com/yourusername/EventHive.git
+ git clone https://github.com/Dev22Patel/Event_Hive.git
 
 2.Navigate to the EventHive directory:
 cd EventHive
