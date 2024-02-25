@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from users_app.models import UserProfile
-
+from django.http import HttpResponse
 
 def Mainpage(request):
     return render(request , 'index.html', {})
@@ -20,3 +20,7 @@ def home(request):
         pass  # You can handle users without a profile differently if needed
 
     return render(request, 'home.html', {'username': user.username, 'user_role': user_role})
+
+@login_required
+def view_events(request):
+    return HttpResponse("hello")
