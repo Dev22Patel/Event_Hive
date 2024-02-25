@@ -13,16 +13,16 @@ Welcome to EventHive, your ultimate platform for connecting event hosts with spo
 
 To dive into EventHive, follow these steps:
 
-1. Clone the EventHive repository:
+1. Clone the EventHive repository:-  
  git clone https://github.com/Dev22Patel/Event_Hive.git
 
-2.Navigate to the EventHive directory:
+2.Navigate to the EventHive directory:-
 cd EventHive
 
-3, Create Migrations
+3, Create Migrations:-
 python manage.py migrate
 
-4. Run the project on localServer
+4. Run the project on localServer:-
 python manage.py runserver
 
 Let's make your event a success with EventHive
