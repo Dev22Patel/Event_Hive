@@ -20,7 +20,9 @@
         <ul class="flex font-semibold">
             <li class="mx-[10px] cursor-pointer">Home</li>
             <li class="mx-[10px] cursor-pointer">Auction</li>
-            <li class="mx-[10px] cursor-pointer">Upcoming Events</li>
+            <li class="mx-[10px] cursor-pointer">
+                <a href="{% url 'view_events' %}">Upcoming Events</a>
+            </li>
             <li><button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="mx-[10px] cursor-pointer" type="button">
                 +Sponser
                 </button>
