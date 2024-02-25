@@ -5,6 +5,7 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = [
+            'EventName',
             'LeadOrganizerName', 
             'LeadOrganizerPhone', 
             'EventDate', 
