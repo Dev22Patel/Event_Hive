@@ -46,16 +46,16 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{% url 'event:add_event' %}" method="post">
+                <form action="{% url 'sponsor:add_brand' %}" method="post">
                     {% csrf_token %}
                     <div class="grid gap-3 mb-3 sm:grid-cols-2">
                         <div>
-                            <label for="SponsorName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Name</label>
-                            <input type="text" name="SponsorName" id="SponsorName" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
+                            <label for="BrandName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Name</label>
+                            <input type="text" name="BrandName" id="SponsorName" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
                         </div>
                         <div>
-                            <label for="SponsorType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Type</label>
-                            <input type="text" name="SponsorType" id="SponsorType" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
+                            <label for="BrandType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Type</label>
+                            <input type="text" name="BrandType" id="SponsorType" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
                         </div>
                         <div>
                             <label for="SponsorPhone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Phone</label>
@@ -63,7 +63,7 @@
                         </div>
                         <div>
                             <label for="SponsorEmail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Email</label>
-                            <input type="date" name="SponsorEmail" id="SponsorEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
+                            <input type="email" name="SponsorEmail" id="SponsorEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email." required="">
                         </div>
                     </div>
                     <button type="submit" class="text-white pr-3 inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">

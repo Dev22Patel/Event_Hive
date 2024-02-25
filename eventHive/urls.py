@@ -8,10 +8,10 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Mainpage, name="index"),
-    
+
     path("home/",home,name="home"),
     path('event/', include(('Eventapp.urls','Eventapp'), namespace='event')),
-    path('sponsor/',include(('Sponsor_app.urls','Sponser_app'),namespace="sponser")),
+    path('sponsor/',include(('Sponsor_app.urls','Sponsor_app'),namespace="sponsor")),
     path('access/', include(('users_app.urls', 'users_app'), namespace='access')),
     path('viewevents/', view_events, name='view_events'),
     path('logout/', logout_view , name='logout'),

@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect
 from .forms import ActiveSponsorForm  # Ensure this is imported correctly
 from django.contrib import messages  # Import messages framework for success/error messages
 
-def add_active_sponsor(request):
+def add_brand(request):
     if request.method == 'POST':
         form = ActiveSponsorForm(request.POST)
         if form.is_valid():
             # Save the new sponsor to the database
             form.save()
             # Optionally, use Django's messaging framework to send a success message
-            messages.success(request, 'The sponsor has been added successfully!')
+            messages.success(request, 'The sponsor/brand details has been added successfully!')
             # Redirect to a new URL (e.g., a 'success' page or the homepage)
             return redirect('home')  # Make sure 'home' matches the actual name of your success URL in urls.py
         else:
