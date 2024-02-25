@@ -13,7 +13,7 @@
     <!-- <h1>Welcome, {{ username }}!</h1>
     <p>Your role: {{ user_role }}</p> -->
 
-    {% if user_role == 'sponsor' %}
+    {% if user_role == 'event_host' %}
     <!-- Navbar for sponsor -->
     <nav class="navbar w-full h-14 bg-slate-950 flex text-white justify-between p-4 items-center sticky -top-0">
         <div class="Appname cursor-pointer animate-bounce">Event<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Thive</span></div>
@@ -66,50 +66,46 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="#">
+                {% csrf_token %}
+                <form action="{% url 'event:add_event' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="grid gap-3 mb-3 sm:grid-cols-2">
+                        <div>
+                            <label for="organizerName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer Name</label>
+                            <input type="text" name="organizer_name" id="organizerName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name" required="">
+                        </div>
+                        <div>
+                            <label for="organizerPhone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer Phone</label>
+                            <input type="tel" name="organizer_phone" id="organizerPhone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
+                        </div>
+                        <div>
+                            <label for="eventDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event Date</label>
+                            <input type="date" name="event_date" id="eventDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email" required="">
+                        </div>
+                        <div>
+                            <h3 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Sponsor Type</h3>
+                            <div>
+                                <input type="checkbox" id="titleSponsor" name="sponsor_types" value="Title">
+                                <label for="titleSponsor">Title Sponsor</label><br>
+                                <input type="checkbox" id="foodSponsor" name="sponsor_types" value="Food">
+                                <label for="foodSponsor">Food Sponsor</label><br>
+                                <input type="checkbox" id="venueSponsor" name="sponsor_types" value="Venue">
+                                <label for="venueSponsor">Venue Sponsor</label><br>
+                                <input type="checkbox" id="digitalSponsor" name="sponsor_types" value="Digital">
+                                <label for="digitalSponsor">Digital Sponsor</label><br>
+                                <input type="checkbox" id="prizeSponsor" name="sponsor_types" value="Prize">
+                                <label for="prizeSponsor">Prize Sponsor</label><br>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="biddingDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bidding Date</label>
+                            <input type="date" name="bidding_date" id="biddingDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                        </div>
                         
-                        <div>
-                            <label for="Organizername" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer Name</label>
-                            <input type="text" name="Organizername" id="Organizername" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
-                        </div>
-                        <div>
-                            <label for="Organizerno." class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lead Organizer PhoneNo.</label>
-                            <input type="text" name="organizerno" id="organizerno" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
-                        </div>
-                        <div>
-                            <label for="EventDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event Date</label>
-                            <input type="date" name="date" id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Phone no." required="">
-                        </div>
-                        <div>
-                            <label for="Email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Drop Email Here" required="">
-                        </div>
-                        
-                        <div>
-                            <h3 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Select Sponser Type 
-                            </h3>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            <label for="vehicle1"> Title Sponser</label><br>
-                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                            <label for="vehicle2"> Food Sponser</label><br>
-                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                            <label for="vehicle3"> Venue Sponser</label><br>
-                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                            <label for="vehicle3"> Digital Sponser</label><br>
-                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                            <label for="vehicle3"> Prize Sponser</label><br>
-                        </div>
-    
-                        <div>
-                            <label for="BiddingDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bidding Date</label>
-                            <input type="date" name="biddate" id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
-                        </div>
-                        <div>
-                            <p class="font-medium">Event Poster</p>
-                            <input type="file" id="myFile" name="filename">
-                        </div>
                         <div class="">
                             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                             <textarea id="description" rows="1" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>                    

@@ -5,6 +5,8 @@ from users_app.models import UserProfile
 
 def Mainpage(request):
     return render(request , 'index.html', {})
+def success(request):
+    return render(request , 'success.html', {})
 
 
 @login_required
