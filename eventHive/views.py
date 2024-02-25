@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from users_app.models import UserProfile
 from django.http import HttpResponse
-
+from Eventapp.models import Event
 def Mainpage(request):
     return render(request , 'index.html', {})
 def success(request):
@@ -28,3 +28,6 @@ def view_events(request):
         'allevents':allevents
     }
     return render(request,'show_events.html',context)
+
+
+
