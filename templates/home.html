@@ -29,6 +29,8 @@
         </ul>
         <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Logout</a>
     </nav>
+
+    <h1 class="text-white font-extrabold mt-2 p-4"> Hello Sponsor {{username}} , <span class="text-purple-400"> Greeting </span></h1>
     {% else %}
     <!-- Navbar for other roles -->
     <nav class="navbar w-full h-14 bg-slate-950 flex text-white justify-between p-4 items-center sticky -top-0">
@@ -45,6 +47,8 @@
         </ul>
         <a class="bg-purple-400 px-2 py-1 rounded-xl hover:shadow-[0_0_25px_purple] text-white font-bold transition ease-in-out hover:translate-y-0.5 cursor-pointer" href="{% url 'access:register' %}?modal=open">Logout</a>
     </nav>
+
+    <h1 class="text-white font-extrabold m-2 p-4"> Hello Host {{username}} ,<span class="text-purple-400"> Greeting </span> </h1>
     {% endif %}
 
 
