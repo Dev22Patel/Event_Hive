@@ -4,6 +4,7 @@ from users_app.models import UserProfile
 from django.http import HttpResponse
 from django.contrib.auth import logout
 from Eventapp.models import Event
+from Sponsor_app.models import ActiveSponsor
 
 
 
@@ -25,12 +26,22 @@ def home(request):
 
 
 @login_required
+def view_sponsors(request):
+    allsponsors = ActiveSponsor.objects.all()
+    context={
+        'allsponsors':allsponsors
+    }
+    return render(request,'show_sponsors.html',context)
+
+
+@login_required
 def view_events(request):
     allevents = Event.objects.all()
     context={
         'allevents':allevents
     }
     return render(request,'show_events.html',context)
+
 
 
 def logout_view(request):
