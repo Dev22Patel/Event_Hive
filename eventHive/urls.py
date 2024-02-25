@@ -11,6 +11,7 @@ urlpatterns = [
     
     path("home/",home,name="home"),
     path('event/', include(('Eventapp.urls','Eventapp'), namespace='event')),
+    path('sponsor/',include(('Sponsor_app.urls','Sponser_app'),namespace="sponser")),
     path('access/', include(('users_app.urls', 'users_app'), namespace='access')),
     path('viewevents/', view_events, name='view_events'),
     path('logout/', logout_view , name='logout'),
