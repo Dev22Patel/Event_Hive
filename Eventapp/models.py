@@ -1,15 +1,16 @@
-# eventApp/models.py
-
 from django.db import models
+# Use the core JSONField for compatibility with SQLite
+from django.db.models import JSONField
 
 class Event(models.Model):
-    organizer_name = models.CharField(max_length=100)
-    organizer_phone = models.CharField(max_length=20)
-    event_date = models.DateField()
-    email = models.EmailField()
-    sponsor_types = models.CharField(max_length=200)  # Consider a more structured approach for multiple choices
-    bidding_date = models.DateField()
-    description = models.TextField()
+    LeadOrganizerName = models.CharField(max_length=100)
+    LeadOrganizerPhone = models.CharField(max_length=20)
+    EventDate = models.DateField()
+    LeadOrganizerEmail = models.EmailField()
+    # For sponsor types, consider storing them as a list or a JSON structure if multiple selections are allowed
+    # SponsorTypes = JSONField()  # Adjust how you handle sponsor types based on your form and requirements
+    BiddingDate = models.DateField()
+    Description = models.TextField()
 
     def __str__(self):
-        return self.organizer_name
+        return self.LeadOrganizerName

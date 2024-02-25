@@ -14,7 +14,7 @@ def add_event(request):
             # Redirect to a new URL (e.g., the homepage or a 'success' page)
             return redirect('success')  # Ensure 'success' matches the actual name of your success URL in urls.py
         else:
-            # Correctly print form errors if form is not valid
+            # Log form errors if form is not valid
             print(form.errors)
             return HttpResponse("not registered")
     else:
