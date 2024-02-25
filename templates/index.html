@@ -41,11 +41,9 @@
     {% for message in messages %}
 
     <!-- for that tick mark  -->
-    <div class="alert alert-danger alert-dismissible fade show"  role="alert">
-        {{message}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        <span aria-hidden="true" class="cursor-pointer">&times;</span>
-    </div>  
+    <div id="myDiv" class="hidden p-4 rounded-md text-purple-400 font-extrabold animate-pulse">{{message}}</div>
+
+         
     {% endfor %}
   {% endif %}
     </div>
@@ -164,6 +162,20 @@
             alert.remove();
         });
     });
+    // Wait for the DOM content to be loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the div element
+    var div = document.getElementById('myDiv');
+    
+    // Show the div
+    div.classList.remove('hidden');
+    
+    // Hide the div after 2-3 seconds (2000-3000 milliseconds)
+    setTimeout(function(){
+        div.classList.add('hidden');
+    }, 2000); // Change 2000 to 3000 if you want to display for 3 seconds
+});
+
 </script>
 
 </body>
