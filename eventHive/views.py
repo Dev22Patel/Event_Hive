@@ -2,11 +2,13 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from users_app.models import UserProfile
 from django.http import HttpResponse
+from django.contrib.auth import logout
 from Eventapp.models import Event
+
+
+
 def Mainpage(request):
     return render(request , 'index.html', {})
-def success(request):
-    return render(request , 'success.html', {})
 
 
 @login_required
@@ -21,6 +23,7 @@ def home(request):
 
     return render(request, 'home.html', {'username': user.username, 'user_role': user_role})
 
+
 @login_required
 def view_events(request):
     allevents = Event.objects.all()
@@ -30,4 +33,7 @@ def view_events(request):
     return render(request,'show_events.html',context)
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 

@@ -12,7 +12,7 @@ def add_event(request):
             # Optionally, use Django's messaging framework to send a success message
             messages.success(request, 'The event has been added successfully!')
             # Redirect to a new URL (e.g., the homepage or a 'success' page)
-            return redirect('success')  # Ensure 'success' matches the actual name of your success URL in urls.py
+            return redirect('home')  # Ensure 'success' matches the actual name of your success URL in urls.py
         else:
             # Log form errors if form is not valid
             print(form.errors)
