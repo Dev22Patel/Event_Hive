@@ -1,0 +1,17 @@
+
+{% block content %}
+<h2>Events</h2>
+<ul>
+    {% for event in allevents %}
+    <li>
+        <h3>{{ event.Description}}</h3>
+        <p>EventDate: {{ event.EventDate}}</p>
+        <p>Description:-{{ event.description }}</p>
+        <p>EventOrgMail:-{{event.LeadOrganizerEmail}}</p>
+        <p>BidDate:-{{event.BiddingDate}}</p>
+    </li>
+    {% empty %}
+    <p>No events available.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -23,4 +23,8 @@ def home(request):
 
 @login_required
 def view_events(request):
-    return HttpResponse("hello")
+    allevents = Event.objects.all()
+    context={
+        'allevents':allevents
+    }
+    return render(request,'show_events.html',context)
