@@ -23,4 +23,4 @@ def add_active_sponsor(request):
         form = ActiveSponsorForm()
 
     # If the method is GET or the form is invalid, render the page with the form
-    return render(request, 'sponsor_app/add_sponsor.html', {'form': form})
+    return render(request, 'home.html', {'form': form})

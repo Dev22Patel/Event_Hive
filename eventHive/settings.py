@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users_app',
     'Eventapp',
-    'Sponser_app',
+    'Sponsor_app',
 ]
 
 MIDDLEWARE = [
