@@ -19,6 +19,10 @@ To dive into EventHive, follow these steps:
 2.Navigate to the EventHive directory:-
 cd EventHive
 
+``pip install django``
+``pip install django-environ``
+
+
 3, Create Migrations:-
 python manage.py migrate
 
