@@ -1,32 +1,26 @@
-
-# class EventForm(forms.ModelForm):
-#     class Meta:
-#         model = Event
-#         fields = [
-#             'EventName',
-#             'LeadOrganizerName', 
-#             'LeadOrganizerPhone', 
-#             'EventDate', 
-#             'LeadOrganizerEmail', 
-#             # 'SponsorTypes', 
-#             'BiddingDate', 
-#             'Description', 
-#         ]
-#         widgets = {
-#             'EventDate': forms.DateInput(attrs={'type': 'date'}),
-#             'BiddingDate': forms.DateInput(attrs={'type': 'date'}),
-#             'Description': forms.Textarea(attrs={'cols': 40, 'rows': 5}),
-#             # Since 'SponsorTypes' is a JSONField, consider how you want to present this in the form.
-#             # You might need a custom widget or method to handle the input and conversion to JSON.
-#         }
 from django import forms
-from .models import Course
+from .models import Event
 
-class CourseForm(forms.ModelForm):
+class EventForm(forms.ModelForm):
     class Meta:
-        model = Course
-        fields = ['CourseName', 'CoursePrice', 'CourseDuration', 'TeacherName','course_files', 'course_image', 'LastUpdated', 'Description']
-
+        model = Event
+        fields = [
+            'EventName',
+            'LeadOrganizerName', 
+            'LeadOrganizerPhone', 
+            'EventDate', 
+            'LeadOrganizerEmail', 
+            # 'SponsorTypes', 
+            'BiddingDate', 
+            'Description', 
+        ]
+        widgets = {
+            'EventDate': forms.DateInput(attrs={'type': 'date'}),
+            'BiddingDate': forms.DateInput(attrs={'type': 'date'}),
+            'Description': forms.Textarea(attrs={'cols': 40, 'rows': 5}),
+            # Since 'SponsorTypes' is a JSONField, consider how you want to present this in the form.
+            # You might need a custom widget or method to handle the input and conversion to JSON.
+        }
 
     def clean_LeadOrganizerEmail(self):
         email = self.cleaned_data.get('LeadOrganizerEmail')

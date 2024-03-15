@@ -3,19 +3,13 @@ from django.contrib.auth.decorators import login_required
 from users_app.models import UserProfile
 from django.http import HttpResponse
 from django.contrib.auth import logout
-from Course_app.models import Course
+from Eventapp.models import Event
 from Sponsor_app.models import ActiveSponsor
 
-def to_index(request):
-    return render(request,'index.html')
 
 
 def Mainpage(request):
-    allevents = Course.objects.all()
-    context={
-        'course':allevents
-    }
-    return render(request , 'index.html', context)
+    return render(request , 'index.html', {})
 
 
 @login_required
@@ -42,9 +36,9 @@ def view_sponsors(request):
 
 @login_required
 def view_events(request):
-    allevents = Course.objects.all()
+    allevents = Event.objects.all()
     context={
-        'course':allevents
+        'allevents':allevents
     }
     return render(request,'show_events.html',context)
 

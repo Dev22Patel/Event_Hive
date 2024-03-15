@@ -29,35 +29,21 @@
 <body>
 {% block content %}
 <a href="{% url 'home' %}" class="bg-purple-400 text-white font-bold p-2 rounded-lg m-3">Back</a>
-<h1 class="text-center mt-5 mb-5 font-extrabold text-white">ALL COURSES</h1>
-
-
-
-
-<div class="container mt-4">
-    <div class="row">
-        {% for c in course %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-black animate-pulse">{{ c.CourseName }}</h5>
-                    <p class="card-text text-gray-300"><span class="font-extrabold text-black">Author:</span><span class="text-black"> {{ c.TeacherName }} </span></p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold text-black">CourseDuration:</span><span class="text-black">{{ c.CourseDuration }} </span></p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold text-black">Last Updated:</span><span class="text-black">{{ c.LastUpdated }}</span></p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold text-black">Description</span> <span class="text-black">{{ c.Description }}</span> </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold text-black">Price:</span><span class="text-black"> {{ c.CoursePrice }}</span> </p>
-                    <a href="#" class="btn btn-primary mt-3">Buy Now</a>
-                </div>
-            </div>
-        </div>
-        {% empty %}
-        <p class="text-center mt-5 font-bold text-white">No Events Available</p>
-        {% endfor %}
-    </div>
+<h1 class="text-center mt-5 mb-5 font-extrabold text-purple-400">Upcoming events</h1>
+{% for event in allevents %}
+<div class="event-container bg-slate-950 m-4 rounded-lg shadow-[0_0_15px_purple] p-4 mx-auto">
+    <h2 class="text-lg mb-1 font-extrabold text-purple-400 animate-pulse"><span class="font-extrabold">{{ event.EventName}}</h2>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Event Organizer  :</span>  {{ event.LeadOrganizerName}}</p>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Organizer Phone  :</span> {{ event.LeadOrganizerPhone}}</p>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Organizer Email  :</span>  {{ event.LeadOrganizerEmail}}</p>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Event Date       :</span>     {{ event.EventDate}}</p>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Bidding Date     :</span>    {{ event.BiddingDate}}</p>
+    <p class="text-sm text-gray-300"><span class="font-extrabold">Event Description:</span> {{ event.Description}}</p>
 </div>
+{% empty %}
+<p class="text-center mt-5 font-bold text-white">No Events Available</p>
+{% endfor %}
 {% endblock %}
-
-
 
 <footer class="bg-[#16181c] rounded-lg shadow-lg sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800 antialiased backdrop-blur-3xl bg-opacity-70 backdrop-filter">
     <p class="mb-4 text-sm text-center text-purple-400 dark:text-gray-400 sm:mb-0">
