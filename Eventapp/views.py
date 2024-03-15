@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import EventForm  # Make sure to import the EventForm
+from .forms import CourseForm  # Make sure to import the EventForm
 from django.contrib import messages  # Import messages framework to show success/error messages
 from django.http import HttpResponse
 
 def add_event(request):
     if request.method == 'POST':
-        form = EventForm(request.POST, request.FILES)
+        form = CourseForm(request.POST, request.FILES)
         if form.is_valid():
             # Save the new event to the database
             form.save()
@@ -19,7 +19,7 @@ def add_event(request):
             return HttpResponse("not registered")
     else:
         # Instantiate a blank version of the form if request is not POST
-        form = EventForm()
+        form = CourseForm()
 
     # If method is GET or form is invalid, render the page with the form
     return render(request, 'home.html', {'form': form})
