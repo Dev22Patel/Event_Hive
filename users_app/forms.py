@@ -9,8 +9,8 @@ def validate_email_unique(value):
 
 class CustomRegistrationForm(forms.Form):
     ROLE_CHOICES = (
-        ('sponsor', 'Sponsor'),
-        ('event_host', 'Event Host'),
+        ('learner', 'Learner'),
+        ('teacher', 'Teacher'),
     )
     
     username = forms.CharField(max_length=150, required=True)
