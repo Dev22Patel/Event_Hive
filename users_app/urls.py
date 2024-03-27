@@ -1,6 +1,6 @@
 from django.urls import include, path
 from users_app import views
-from eventHive.views import Mainpage
+from EduHub.views import Mainpage
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [

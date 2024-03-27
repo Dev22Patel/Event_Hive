@@ -71,9 +71,9 @@
     {% if user_role == 'learner' %}
     <!-- Navbar for sponsor -->
     <nav class="navbar w-full h-14 flex text-white justify-between items-center -top-0">
-        <div class="Appname cursor-pointer animate-bounce">Event<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Thive</span></div>
+        <div class="Appname cursor-pointer animate-bounce">Edu<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Wave</span></div>
         <ul class="flex font-semibold">
-            <li class="mx-[10px] cursor-pointer hover:text-purple-400"><a href="{% url 'to_index' %}">Home</a></li>
+            <li class="mx-[10px] cursor-pointer hover:text-purple-400"><a href="{% url 'index' %}">Home</a></li>
             <li class="mx-[10px] cursor-pointer hover:text-purple-400">Plan and Pricing</li>
             <li class="mx-[10px] cursor-pointer hover:text-purple-400">
                 <a href="{% url 'view_events' %}">All Courses</a>
@@ -100,49 +100,94 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                 </div>
-                <!-- Modal body -->
-                <form action="{% url 'sponsor:add_brand' %}" method="post">
-                    {% csrf_token %}
-                    <div class="grid gap-3 mb-3 sm:grid-cols-2">
-                        <div>
-                            <label for="BrandName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Name</label>
-                            <input type="text" name="BrandName" id="SponsorName" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
-                        </div>
-                        <div>
-                            <label for="BrandType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Type</label>
-                            <input type="text" name="BrandType" id="SponsorType" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer name (HERE)" required="">
-                        </div>
-                        <div>
-                            <label for="SponsorPhone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Phone</label>
-                            <input type="text" name="SponsorPhone" id="SponsorPhone" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Lead Organizer phone no." required="">
-                        </div>
-                        <div>
-                            <label for="SponsorEmail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sponsor Email</label>
-                            <input type="email" name="SponsorEmail" id="SponsorEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email." required="">
-                        </div>
-                    </div>
-                    <button type="submit" class="text-white pr-3 inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                        Add
-                    </button>
-                </form>
+               
                 
             </div>
         </div>
     </div>
     <h1 class="text-white font-extrabold mt-2 p-4"> Hello Learner {{username}} , <span class="text-purple-400"> Greeting Hope Your Day is Going Fantastic</span></h1>
+    
+
+    <div class="col-12 col-md-7 col-lg-7 order-md-1 ml-3">
+
+        _______________________________________________________________________________________________________________________________________________________________________________________________
+                <!-- Heading -->
+                <h1 class="display-2 text-gradient-1 text-capitalize text-white" data-aos="fade-left" data-aos-duration="150">
+                    Learn on your <span class="fw-bold text-purple-400">Schedule</span>
+                </h1>
+        
+                <!-- Text -->
+                <p class="lead pe-md-8 pe-xl-12 text-capitalize text-white" data-aos="fade-up" data-aos-duration="200">
+                    Technology is bringing a massive wave of evolution on learning things in different ways.
+                </p>
+        
+                <!-- Buttons -->
+            </div>
+            <h1 class="featured-heading text-white font-bold ml-4 pl-4 pt-4">Featured Courses</h1>
+<div class="container mt-4">
+    <div class="row">
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'AI_image.png' %}" class="card-img-top" alt="{{ c.EventName }}">
+                <div class="card-body">
+                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
+                    <a href="{% url 'to_cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'Web_dev.png' %}" class="card-img-top" alt="{{ c.EventName }}">
+                <div class="card-body">
+                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
+                    <a href="{% url 'to_cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'ml.jpeg' %}" class="card-img-top" alt="{{ c.EventName }}">
+                <div class="card-body">
+                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
+                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
+                    <a href="{% url 'to_cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+                </div>
+            </div>
+        </div>
+     
+   </div>
     {% else %}
     <!-- Navbar for other roles -->
     <nav class="navbar w-full h-14 bg-slate-950 flex text-white justify-between p-4 items-center sticky -top-0">
-        <div class="Appname cursor-pointer animate-bounce">Event<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Hive</span></div>
+        <div class="Appname cursor-pointer animate-bounce">Edu<span class="thive text-purple-400 transition-colors duration-50 ease-in-out delay-300">Wave</span></div>
         <ul class="flex font-semibold">
             <li class="mx-[10px] cursor-pointer">Home</li>
             <li class="mx-[10px] cursor-pointer">Tech News</li>
-            <li class="mx-[10px] cursor-pointer"></li>
-            <!-- <li class="mx-[10px] cursor-pointer">
-                <a href="{% url 'view_sponsors' %}">Sponsers List</a>
-            </li> -->
+            <li class="mx-[10px] cursor-pointer"><a href="{% url 'course:course_form' %}">Create Course</a></li>
+
             <li><button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="mx-[10px] cursor-pointer" type="button">
-                +Courses
+                Add Courses
                 </button>
             </li>
         </ul>
@@ -164,7 +209,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{% url 'event:add_event' %}" method="post">
+                <form action="{% url 'course:add_course' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="grid gap-3 mb-3 sm:grid-cols-2">
                         <div>
@@ -180,13 +225,13 @@
                             <input type="text" name="CourseDuration" id="CourseDuration" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                         </div>
                         <div>
-                            <label for="TeacherName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher Name</label>
-                            <input type="text" name="TeacherName" id="TeacherName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" >
+                            <label for="TeacherName" class="block mb-2 text-sm font-medium text-gray-900">Teacher Name</label>
+                            <input type="text" name="TeacherName" id="TeacherName" class="text-black text-sm rounded-lg block w-full p-2.5 " placeholder="" >
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="file" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter file of your Course</label>
                             <input type="file" name="file" id="file" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" >
-                        </div>
+                        </div> -->
                         <div>
                         <label for="image">Select an image:</label>
                         <input type="file" id="course_image" name="course_image">
@@ -209,83 +254,36 @@
             </div>
         </div>
     </div>
-    <h1 class="text-white font-extrabold m-2 p-4"> Hello Host {{username}} ,<span class="text-purple-400"> Greeting </span> </h1>
+    <h1 class="text-white font-extrabold m-2 p-4"> Hello Teacher {{username}} ,<span class="text-purple-400"> Greeting </span> </h1>
+    {% if messages %}
+    {% for message in messages %}
+    <div id="myDiv" class="hidden p-4 rounded-md text-black text-center  font-extrabold animate-pulse">{{message}}</div>
+    {% endfor %}
+    {% endif %}
+    <div class="col-12 col-md-7 col-lg-7 order-md-1 ml-3">
+
+        _______________________________________________________________________________________________________________________________________________________________________________________________
+                <!-- Heading -->
+                <h1 class="display-2 text-gradient-1 text-capitalize text-white" data-aos="fade-left" data-aos-duration="150">
+                    Reach Your Course To <span class="fw-bold text-purple-400">Wide Range Of Students</span>
+                </h1>
+        
+                <!-- Text -->
+                <p class="lead pe-md-8 pe-xl-12 text-capitalize text-white" data-aos="fade-up" data-aos-duration="200">
+                    Make Course For Students and Earn Also .
+                </p>
+        
+                <!-- Buttons -->
+            </div>
     {% endif %}
 
 
 </div>
-<div class="col-12 col-md-7 col-lg-7 order-md-1 ml-3">
 
-    _______________________________________________________________________________________________________________________________________________________________________________________________
-            <!-- Heading -->
-            <h1 class="display-2 text-gradient-1 text-capitalize text-white" data-aos="fade-left" data-aos-duration="150">
-                Learn on your <span class="fw-bold text-purple-400">Schedule</span>
-            </h1>
-    
-            <!-- Text -->
-            <p class="lead pe-md-8 pe-xl-12 text-capitalize text-white" data-aos="fade-up" data-aos-duration="200">
-                Technology is bringing a massive wave of evolution on learning things in different ways.
-            </p>
-    
-            <!-- Buttons -->
-        </div>
         ______________________________________________________________________________________________________________________________________________________________________________________________
 <!-- <img class="rounded-full container justify-center max-w-sm p-5" src="data:image/png;base64,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"> -->
 
-<h1 class="featured-heading text-white font-bold ml-4 pl-4 pt-4">Featured Courses</h1>
 
-<div class="container mt-4">
-    <div class="row">
-        
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{% static 'AI_image.png' %}" class="card-img-top" alt="{{ c.EventName }}">
-                <div class="card-body">
-                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
-                    <a href="#" class="btn btn-primary mt-3">Buy Now</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{% static 'Web_dev.png' %}" class="card-img-top" alt="{{ c.EventName }}">
-                <div class="card-body">
-                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
-                    <a href="#" class="btn btn-primary mt-3">Buy Now</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{% static 'ml.jpeg' %}" class="card-img-top" alt="{{ c.EventName }}">
-                <div class="card-body">
-                    <h5 class="card-title text-purple-400 animate-pulse">{{ c.EventName }}</h5>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author:</span>DAA </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Price:</span>rs.399 </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Author Email:</span>notrealdev2211@gmai.com </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Event Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Bidding Date:</span>dev </p>
-                    <p class="card-text text-gray-300"><span class="font-extrabold">Course Description:</span>Its good course </p>
-                    <a href="#" class="btn btn-primary mt-3">Buy Now</a>
-                </div>
-            </div>
-        </div>
-     
-   </div>
 
 
    

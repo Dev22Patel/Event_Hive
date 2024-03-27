@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .upload-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px; /* Limit form width */
+            width: 100%; /* Ensure form fills container */
+        }
+        .upload-form h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-upload {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .btn-upload:hover {
+            background-color: #0056b3;
+        }
+        .btn-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .btn-home:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'index' %}" class="btn btn-home">Home</a>
+    <div class="container">
+        <div class="upload-form">
+            <h1>Give Review</h1>
+            <form method="post" enctype="multipart/form-data">  
+                {% csrf_token %}  
+                <div class="mb-3 form-group">
+                    <label for="name">Name:</label>
+                    {{ form.name }}
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="message">Message:</label>
+                    {{ form.message }}
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="imag">Image:</label>
+                    {{ form.image }}
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="imag">Current Status:</label>
+                    {{ form.current_status }}
+                </div>
+                <button type="submit" class="btn btn-upload">Upload</button>  
+            </form>  
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
